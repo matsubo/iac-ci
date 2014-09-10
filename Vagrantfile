@@ -14,6 +14,7 @@ Vagrant.configure("2") do |config|
       recipe[apt::default]
       recipe[nginx]
       recipe[vim]
+      recipe[ntp]
       recipe[mysql::client]
     ]
   end

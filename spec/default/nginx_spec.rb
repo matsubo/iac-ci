@@ -15,5 +15,5 @@ end
 
 describe file('/etc/nginx/nginx.conf') do
   it { should be_file }
-  # it { should contain "ServerName jenkingrant" }
+  its(:content) { should match /user / }
 end
