@@ -21,9 +21,6 @@ build:
         name: Run chmod 0400 $HOME/.ssh/id_rsa
         code: chmod 0400 $HOME/.ssh/id_rsa
     - script:
-        name: gem install
-        code: sudo gem install serverspec --pre --no-ri --no-rdoc
-    - script:
         name: Run vagrant plugin install
         code: vagrant plugin install vagrant-vbguest
     - script:
@@ -38,6 +35,9 @@ build:
     - script:
         name: Run vagrant up
         code: vagrant up --provider=digital_ocean
+    - script:
+        name: gem install
+        code: sudo gem install serverspec --pre --no-ri --no-rdoc
     - script:
         name: Run rake spec
         code: rake spec
