@@ -1,4 +1,4 @@
-box: mumoshu/kitchen@0.0.12
+box: wercker/ruby
 no-response-timeout: 10
 build:
   steps:
@@ -32,11 +32,11 @@ build:
         name: Run vagrant up
         code: vagrant up --provider=digital_ocean
     - bundle-install
-    - script:
-        name: provision
-        code: |-
-          vagrant reload
-          vagrant provision
+#    - script:
+#        name: provision
+#        code: |-
+#          vagrant reload
+#          vagrant provision
     - script:
         name: Run rake spec
         code: bundle exec rake spec
