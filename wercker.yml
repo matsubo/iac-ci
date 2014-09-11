@@ -1,4 +1,5 @@
 box: mumoshu/kitchen@0.0.12
+no-response-timeout: 2
 build:
   steps:
     - script:

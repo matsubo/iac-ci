@@ -13,9 +13,9 @@ Vagrant.configure("2") do |config|
     chef.run_list = %w[
       recipe[apt::default]
       recipe[nginx]
-      recipe[vim]
       recipe[ntp]
     ]
+    #recipe[vim]
     #recipe[mysql::client]
   end
 
@@ -28,8 +28,7 @@ Vagrant.configure("2") do |config|
     provider.token                = ENV["DIGITALOCEAN_TOKEN"]
     provider.image                = 'Debian 7.0 x64'
     provider.region               = 'nyc3'
-    provider.size = '512mb'
-    #provider.ca_path              = '/path/to/ca'
+    provider.size                 = '512mb'
 
 
     if ENV['WERCKER'] == "true"
