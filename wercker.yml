@@ -30,7 +30,7 @@ build:
     - bundle-install
     - script:
         name: Run rake spec
-        code: rake spec
+        code: bunele exec rake spec
 
   after-steps:
     - script:
