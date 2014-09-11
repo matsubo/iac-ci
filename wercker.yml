@@ -33,6 +33,11 @@ build:
         code: vagrant up --provider=digital_ocean
     - bundle-install
     - script:
+        name: provision
+        code: |-
+          vagrant reload
+          vagrant provision
+    - script:
         name: Run rake spec
         code: bundle exec rake spec
 
