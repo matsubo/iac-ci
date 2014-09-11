@@ -41,8 +41,9 @@ Vagrant.configure("2") do |config|
 
 
 
-  config.omnibus.chef_version = :latest
-  config.berkshelf.enabled = true
+  # test without chef
+#  config.omnibus.chef_version = :latest
+#  config.berkshelf.enabled = true
 
 
 end
