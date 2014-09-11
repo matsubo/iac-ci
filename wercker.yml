@@ -1,5 +1,5 @@
 box: mumoshu/kitchen@0.0.12
-no-response-timeout: 2
+no-response-timeout: 10
 build:
   steps:
     - script:
@@ -22,7 +22,7 @@ build:
         code: chmod 0400 $HOME/.ssh/id_rsa
     - script:
         name: Run vagrant plugin install
-        code: vagrant plugin install vagrant-vbguest vagrant-omnibus vagrant-digitalocean
+        code: vagrant plugin install vagrant-vbguest  vagrant-digitalocean
         #code: vagrant plugin install vagrant-vbguest vagrant-omnibus vagrant-berkshelf vagrant-digitalocean
     - script:
         name: Run vagrant up
