@@ -35,9 +35,7 @@ build:
     - script:
         name: Run vagrant up
         code: vagrant up --provider=digital_ocean
-    - script:
-        name: gem install
-        code: sudo gem install serverspec --pre --no-ri --no-rdoc
+    - bundle-install
     - script:
         name: Run rake spec
         code: rake spec
