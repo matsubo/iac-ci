@@ -23,7 +23,7 @@ build:
     - script:
         name: Install chefdk
         code: |-
-          curl -Lk https://www.getchef.com/chef/install.sh | sh -s -- -P chefdk
+          curl -Lk https://www.getchef.com/chef/install.sh | sudo sh -s -- -P chefdk
           echo 'eval "$(chef shell-init bash)"' >> ~/.bash_profile
     - script:
         name: Run vagrant plugin install
