@@ -8,17 +8,16 @@ Vagrant.configure("2") do |config|
   config.vm.network "private_network", ip: "192.168.33.104"
 
 
-  # test without chef
-#  config.vm.provision "chef_solo" do |chef|
-#    chef.cookbooks_path = "site-cookbooks/"
-#    chef.run_list = %w[
-#      recipe[apt::default]
-#      recipe[nginx]
-#      recipe[ntp]
-#    ]
-#    #recipe[vim]
-#    #recipe[mysql::client]
-#  end
+  config.vm.provision "chef_solo" do |chef|
+    chef.cookbooks_path = "site-cookbooks/"
+    chef.run_list = %w[
+      recipe[apt::default]
+      recipe[nginx]
+      recipe[ntp]
+    ]
+    #recipe[vim]
+    #recipe[mysql::client]
+  end
 
 
   config.vm.provider :digital_ocean do |provider, override|
@@ -41,9 +40,8 @@ Vagrant.configure("2") do |config|
 
 
 
-  # test without chef
-#  config.omnibus.chef_version = :latest
-#  config.berkshelf.enabled = true
+  config.omnibus.chef_version = :latest
+  config.berkshelf.enabled = true
 
 
 end
