@@ -15,8 +15,8 @@ Vagrant.configure("2") do |config|
       recipe[nginx]
       recipe[vim]
       recipe[ntp]
-      recipe[mysql::client]
     ]
+    #recipe[mysql::client]
   end
 
 
