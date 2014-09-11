@@ -29,7 +29,7 @@ Vagrant.configure("2") do |config|
     provider.token                = ENV["DIGITALOCEAN_TOKEN"]
     provider.image                = 'Debian 7.0 x64'
     provider.region               = 'nyc3'
-    provider.size                 = '256mb'
+    provider.size                 = '512mb'
 
 
     if ENV['WERCKER'] == "true"
