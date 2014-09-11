@@ -22,16 +22,8 @@ build:
         code: chmod 0400 $HOME/.ssh/id_rsa
     - script:
         name: Run vagrant plugin install
-        code: vagrant plugin install vagrant-vbguest
-    - script:
-        name: Run vagrant plugin install
-        code: vagrant plugin install vagrant-omnibus
-    - script:
-        name: Run vagrant plugin install
-        code: vagrant plugin install vagrant-berkshelf
-    - script:
-        name: Run vagrant plugin install
-        code: vagrant plugin install vagrant-digitalocean
+        code: vagrant plugin install vagrant-vbguest vagrant-omnibus vagrant-digitalocean
+        #code: vagrant plugin install vagrant-vbguest vagrant-omnibus vagrant-berkshelf vagrant-digitalocean
     - script:
         name: Run vagrant up
         code: vagrant up --provider=digital_ocean

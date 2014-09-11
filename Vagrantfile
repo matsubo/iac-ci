@@ -8,16 +8,17 @@ Vagrant.configure("2") do |config|
   config.vm.network "private_network", ip: "192.168.33.104"
 
 
-  config.vm.provision "chef_solo" do |chef|
-    chef.cookbooks_path = "site-cookbooks/"
-    chef.run_list = %w[
-      recipe[apt::default]
-      recipe[nginx]
-      recipe[ntp]
-    ]
-    #recipe[vim]
-    #recipe[mysql::client]
-  end
+  # test without chef
+#  config.vm.provision "chef_solo" do |chef|
+#    chef.cookbooks_path = "site-cookbooks/"
+#    chef.run_list = %w[
+#      recipe[apt::default]
+#      recipe[nginx]
+#      recipe[ntp]
+#    ]
+#    #recipe[vim]
+#    #recipe[mysql::client]
+#  end
 
 
   config.vm.provider :digital_ocean do |provider, override|
@@ -28,7 +29,7 @@ Vagrant.configure("2") do |config|
     provider.token                = ENV["DIGITALOCEAN_TOKEN"]
     provider.image                = 'Debian 7.0 x64'
     provider.region               = 'nyc3'
-    provider.size                 = '512mb'
+    provider.size                 = '256mb'
 
 
     if ENV['WERCKER'] == "true"
