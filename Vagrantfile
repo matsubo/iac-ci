@@ -19,6 +19,28 @@ Vagrant.configure("2") do |config|
     ]
   end
 
+
+  config.vm.provider :digital_ocean do |provider, override|
+    override.ssh.private_key_path = '~/.ssh/id_rsa'
+    override.vm.box               = 'digital_ocean'
+    override.vm.box_url           = "https://github.com/smdahlen/vagrant-digitalocean/raw/master/box/digital_ocean.box"
+    provider.private_networking   = true
+    provider.token                = ENV["DIGITALOCEAN_TOKEN"]
+    provider.image                = 'Debian 7.0 x64'
+    provider.region               = 'nyc3'
+    provider.size = '512mb'
+    #provider.ca_path              = '/path/to/ca'
+
+
+    if ENV['WERCKER'] == "true"
+      provider.ssh_key_name         = 'wercker'
+    else
+      provider.ssh_key_name         = 'metaps mac'
+    end
+  end
+
+
+
   config.omnibus.chef_version = :latest
   config.berkshelf.enabled = true
 
