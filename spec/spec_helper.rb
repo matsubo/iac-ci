@@ -40,10 +40,6 @@ RSpec.configure do |c|
           end
         end
       end
-
-      puts host
-      puts user
-      puts options
       c.ssh   = Net::SSH.start(host, user, options)
     end
   end
